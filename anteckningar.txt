@@ -1,1 +1,20 @@
-Var finns bilerna?
+
+prefix: https://teaching.maumt.se/apis/access/
+
+
+
+https://dog.ceo/dog-api/documentation
+
+
+Display single random image from all dogs collection
+https://dog.ceo/api/breeds/image/random
+
+
+List all breeds
+https://dog.ceo/api/breeds/list/all
+
+
+
+
+Problem + Frågor
+Hur får jag tag på responsen från en async function?

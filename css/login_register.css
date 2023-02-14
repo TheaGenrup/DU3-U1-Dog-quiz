@@ -1,0 +1,52 @@
+.register-head,
+.login_head,
+.go_to_login,
+.go_to_register,
+.ready {
+    text-align: center;
+}
+
+.register-head {
+    font-size: 6vh;
+
+}
+
+main {
+    margin: 2vh;
+    margin-left: 1vh;
+    margin: 20vh 2vh 2vh 1vh;
+}
+
+main>input {
+    width: 100%;
+    height: 4vh;
+}
+
+main>p {
+    margin-bottom: -1px;
+}
+
+.register_btn {
+    justify-content: center;
+    width: 100%;
+    height: 7vh;
+    font-size: 20px;
+    margin-top: 2vh;
+}
+
+.ready {
+    font-size: small;
+    margin-top: 2.5vh;
+}
+
+.go_to_login,
+.go_to_register,
+.register_btn,
+.login_btn {
+    cursor: pointer;
+}
+
+.go_to_login,
+.go_to_register {
+    margin-top: 7vh;
+}
