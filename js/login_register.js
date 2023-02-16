@@ -1,6 +1,7 @@
 "use strict"
 
-async function create_register_page() {
+function create_register_page() {
+    document.querySelector("#feedback_bg").classList.add("invisible");
 
     document.querySelector("main").innerHTML = `
     <h1 class="register-head">REGISTER</h1>
@@ -17,23 +18,46 @@ async function create_register_page() {
     //button interaction
     document.querySelector(".register_btn").addEventListener("click", async (event) => {
 
+        const feedback_container = document.querySelector("#feedback");
+        feedback_container.textContent = "Contacting the server...";
+        feedback_container.classList.remove("invisible");
+        document.querySelector("#feedback_bg").classList.remove("invisible");
+
+        // Get input and post it
         const user_name_input = document.querySelector(".input_username").value;
         const password_input = document.querySelector(".input_password").value;
 
 
-        const post_new_user = await fetch_resource("https://teaching.maumt.se/apis/access/", {
-            action: "register",
-            user_name: user_name_input,
-            password: password_input
-        });
+        const post_new_user = await fetch_resource(new Request("https://teaching.maumt.se/apis/access/", {
+            method: "POST",
+            body: JSON.stringify({
+                action: "register",
+                user_name: user_name_input,
+                password: password_input
+            }),
+            headers: { "Content-type": "application/json; charset=UTF-8" }
+        }))
 
-        console.log(post_new_user);
 
-        document.querySelector(".input_username").textContent = "";
-        document.querySelector(".input_password").textContent = "";
+        switch (post_new_user.status) {
+            case 200:
+                await alert("Registration complete. Please proceed to login");
+                break;
 
-        // om allt gick bra
-        alert("Registration complete. Please proceed to login.")
+            case 409:
+                await alert("Sorry, that name is taken. Please try with another one.")
+                break;
+
+            case 418:
+                await alert("The server thinks it's not a teapot!")
+                break;
+
+            default:
+                break;
+        }
+
+        document.querySelector(".input_username").value = "";
+        document.querySelector(".input_password").value = "";
     })
 
 }
@@ -41,16 +65,23 @@ async function create_register_page() {
 
 function create_login_page() {
 
-
-
     const check_credentials = fetch_resource(`https://teaching.maumt.se/apis/access/?action=check_credentials&user_name=X&password=Y`);
 }
 
+
 function alert(message) {
 
-    //Contacting server
-    //Registration complete. Please proceed to login
 
-    const alert_container = document.createElement("div");
+    const feedback_container = document.querySelector("#feedback")
+    feedback_container.innerText = message;
+
+    const button = document.createElement("button");
+    feedback_container.append(button);
+    button.classList.add("close_button");
+    button.textContent = "CLOSE";
+
+    button.addEventListener("click", (event) => feedback_container.classList.add("invisible"))
+
+    document.querySelector("#feedback_bg").classList.add("invisible");
 
 }
