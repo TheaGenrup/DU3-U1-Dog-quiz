@@ -10,7 +10,6 @@
 
 * {
     font-family: "Roboto Regular";
-
 }
 
 
@@ -18,6 +17,9 @@ body {
     background-color: black;
     margin: 0;
     box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
 }
 
 #wrapper {
@@ -26,6 +28,7 @@ body {
     padding: 10px;
     box-sizing: border-box;
     margin: 0;
+
 }
 
 header {
@@ -63,4 +66,48 @@ footer>a {
 
 .invisible {
     display: none;
+}
+
+#feedback {
+    background-color: rgba(255, 255, 255, 0.913);
+    padding: 30px;
+    border-radius: 10px;
+    font-size: 6vw;
+    grid-row: 1/2;
+    grid-column: 1/2;
+    /*     position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 80vh;
+    transform: translate(-50%, -50%);
+    z-index: 2; */
+    /*     position: absolute;
+    top: 50%;
+    transform: translate(0, -50%) */
+}
+
+#feedback>button {
+    background-color: lightgrey;
+    padding: 8px;
+    border: rgb(181, 181, 181) 1px solid;
+    z-index: 1;
+    position: relative;
+    border-radius: 10px;
+    width: 70vw;
+    margin-top: 10px;
+    font-size: 17px;
+}
+
+#feedback>button:hover {
+    background-color: rgb(201, 201, 201);
+}
+
+#feedback_bg {
+    background-color: rgba(255, 255, 255, 0.581);
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    border-radius: 25px;
 }

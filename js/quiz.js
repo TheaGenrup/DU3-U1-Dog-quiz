@@ -27,11 +27,12 @@ function create_quiz(user_name) {
     get_rest_of_info()
 
     async function get_rest_of_info() {
-        let random_dog = array_with_dogs[random_number(array_with_dogs.length)]
+        const random_dog = array_with_dogs[random_number(array_with_dogs.length)]
+        console.log(random_dog.name);
 
         const get_image = await (await fetch_resource(`https://dog.ceo/api/breed/${random_dog.url}/images/random`)).json();
 
-        let image = document.querySelector("#image");
+        const image = document.querySelector("#image");
         image.src = await get_image.message;
 
         array_with_dogs.forEach(animal => {
@@ -42,18 +43,20 @@ function create_quiz(user_name) {
             alt_btn.textContent = animal.name;
 
             alt_btn.addEventListener("click", (event => {
-                console.log(event.target.textContent);
-                console.log(random_dog);
 
                 if (event.target.textContent === random_dog.name) {
                     alert("Correct answer!", "ONE MORE");
                     document.querySelector("#feedback").style.backgroundColor = "rgb(184, 215, 111)";
+
                 } else {
                     alert("Sorry, wrong answer", "ONE MORE")
-                    document.querySelector("#feedback").style.bottom = "60%"
+                    document.querySelector("#feedback").style.backgroundColor = "#c57c76";
+                    document.querySelector("#feedback").style.display = "block";
+                    /* document.querySelector("#feedback").style.bottom = "60%" */
+
                 }
 
-                document.querySelector("#feedback > button").addEventListener("click", create_quiz())
+                document.querySelector(".close_button").addEventListener("click", create_quiz)
             }))
         })
 

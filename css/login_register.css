@@ -47,35 +47,3 @@ main>p {
     margin-top: 7vh;
     text-decoration: underline;
 }
-
-#feedback {
-    background-color: rgb(255, 255, 255);
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 100px;
-    position: relative;
-    bottom: 40%;
-    box-sizing: border-box;
-    z-index: 2;
-}
-
-#feedback>button {
-    background-color: lightgrey;
-    padding: 10px;
-    border: rgb(181, 181, 181) 1px solid;
-    z-index: 1;
-    position: relative;
-    border-radius: 10px;
-    width: 70vw;
-    margin-top: 10px;
-}
-
-#feedback_bg {
-    background-color: rgba(255, 255, 255, 0.581);
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    border-radius: 25px;
-}
