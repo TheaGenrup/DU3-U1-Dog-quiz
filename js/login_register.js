@@ -70,7 +70,7 @@ function create_login_page() {
 
     document.querySelector("#feedback_bg").classList.add("invisible");
 
-    document.querySelector("main").innerHTML += `
+    document.querySelector("main").innerHTML = `
     <h1 class="login_register_head">LOGIN</h1>
     <p>User Name</p>
     <input type="text" class="input_username">
@@ -132,6 +132,4 @@ function create_login_page() {
     })
 
 }
-
-
 

@@ -51,8 +51,6 @@ function create_quiz(user_name) {
                 } else {
                     alert("Sorry, wrong answer", "ONE MORE")
                     document.querySelector("#feedback").style.backgroundColor = "#c57c76";
-                    document.querySelector("#feedback").style.display = "block";
-                    /* document.querySelector("#feedback").style.bottom = "60%" */
 
                 }
 
