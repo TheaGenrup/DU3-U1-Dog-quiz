@@ -18,8 +18,6 @@ https://dog.ceo/api/breeds/list/all
 
 Problem + Frågor
 
-Hur får jag tag på responsen från en async function?
-
 Vilken sida ska man komma till först?
 
 Om vi försöker registrera oss utan att ha skrivit någon input?
@@ -31,5 +29,7 @@ quiz svarsalternativ = först hämtar vi de fyra namnen på raserna och lägger 
 
 
 Att fixa
-- Feedback bakgrundsbild
 - Lägga till catch
+- Log out
+- Feedback login
+- Logo not found 404

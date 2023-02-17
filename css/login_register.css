@@ -1,14 +1,12 @@
-.register-head,
-.login_head,
-.go_to_login,
-.go_to_register,
+.where_to,
 .ready,
 #feedback {
     text-align: center;
 }
 
-.register-head {
+.login_register_head {
     font-size: 6vh;
+    text-align: center;
 }
 
 main {
@@ -22,41 +20,41 @@ main>input {
 
 main>p {
     margin-bottom: -1px;
+    font-size: 2.6vh;
 }
 
-.register_btn {
+.register_btn,
+.login_btn {
     justify-content: center;
-    width: 102%;
+    width: 102.5%;
     height: 7vh;
     font-size: 20px;
     margin-top: 2vh;
 }
 
 .ready {
-    font-size: small;
+    font-size: 2.4vh;
     margin-top: 2.5vh;
 }
 
-.go_to_login,
-.go_to_register,
+.where_to,
 .register_btn,
 .login_btn {
     cursor: pointer;
 }
 
-.go_to_login,
-.go_to_register {
+.where_to {
     margin-top: 7vh;
     text-decoration: underline;
 }
 
 #feedback {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     padding: 30px;
     border-radius: 10px;
     margin-bottom: 100px;
     position: relative;
-    bottom: 45%;
+    bottom: 40%;
     box-sizing: border-box;
     z-index: 2;
 }

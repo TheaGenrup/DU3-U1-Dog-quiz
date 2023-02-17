@@ -17,6 +17,7 @@
 body {
     background-color: black;
     margin: 0;
+    box-sizing: border-box;
 }
 
 #wrapper {
@@ -32,7 +33,6 @@ header {
     justify-content: space-between;
     height: 30px;
     box-sizing: border-box;
-    background-color: rgb(168, 206, 206);
 }
 
 #logo {
@@ -45,7 +45,7 @@ header {
 }
 
 #title {
-    font-size: 20px;
+    font-size: 6vw;
 }
 
 footer {
