@@ -18,8 +18,9 @@
     height: 5vh;
 }
 
-.user p {
+.user div {
     margin: 0;
+    font-size: 3vh;
 }
 
 #image {
@@ -34,7 +35,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 8vh 8vh;
     height: 30vh;
-    gap: 10px;
+    gap: 7px;
     margin-top: 10px;
 }
 

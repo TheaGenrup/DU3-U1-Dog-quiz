@@ -22,9 +22,11 @@ body {
 #wrapper {
     border-radius: 25px;
     height: 100vh;
-    padding: 2vh;
+    padding: 3vh;
     box-sizing: border-box;
     margin: 0;
+    overflow: hidden;
+    position: relative;
 
     background-position: center;
     background-size: 100%;
@@ -42,22 +44,21 @@ header {
     background-image: url(../media/logo.png);
     background-position: center;
     background-size: cover;
-    height: 5.5vh;
-    width: 5.5vh;
+    height: 4.7vh;
+    width: 4.7vh;
     margin-top: -6px;
 }
 
 #title {
-    font-size: 6vw;
+    font-size: 5vw;
 }
 
 main {
-    margin-top: 20vh;
-
+    margin: 20vh 0vh;
 }
 
 main>input {
-    width: 100%;
+    width: 97.5%;
     height: 4vh;
 }
 
@@ -65,6 +66,7 @@ main>p {
     margin-bottom: -1px;
     font-size: 2.6vh;
 }
+
 
 footer {
     position: absolute;
@@ -89,20 +91,20 @@ footer>a {
     border-radius: 10px;
     font-size: 6vw;
 
-    width: 92vw;
-    margin-right: 10px;
+    margin: 0 2vh;
     position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translate(0, -50%);
     z-index: 2;
+    top: 50%;
+    right: 50%;
+    transform: translate(54.5%, -50%);
+    width: 79vw;
 
-    /*     position: fixed;
-    top: 40%;
+    /* 
+    position: fixed;
+    top: 50%;
     left: 50%;
-    width: 80vh;
-    transform: translate(-50%, -50%);
- */
+    transform: translate(-50%, -50%); */
+
 
 }
 

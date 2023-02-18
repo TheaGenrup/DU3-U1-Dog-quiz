@@ -49,3 +49,20 @@ function hide_feedback() {
 function random_number(max) {
     return Math.floor(max * Math.random());
 }
+
+
+function save_credentials(user_name_input, password_input) {
+
+    const credentials = JSON.stringify({
+        user_name: user_name_input,
+        password: password_input,
+    })
+
+    localStorage.setItem("user", credentials)
+
+    const recent_user = JSON.parse(localStorage.getItem("user"))
+
+    if (recent_user !== null) {
+
+    }
+}

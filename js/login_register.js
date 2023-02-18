@@ -10,7 +10,7 @@ function create_register_page() {
     <input type="text" class="input_username">
     <p>Password</p>
     <input type="password" class="input_password">
-    <p class="ready">Ready when you are...</p>
+    <div class="ready">Ready when you are...</div>
     <button class="register_btn">Register</button>
     <p class="where_to">Already have an account? Go to login</p>
     `;
@@ -21,7 +21,7 @@ function create_register_page() {
     //button interaction
     document.querySelector(".register_btn").addEventListener("click", async (event) => {
 
-        _show_feedback_with_button_no_button("Contacting the server...")
+        show_feedback_no_button("Contacting the server...");
 
         // Get input and post it
         const user_name_input = document.querySelector(".input_username").value;
@@ -41,7 +41,7 @@ function create_register_page() {
 
         switch (post_new_user.status) {
             case 200:
-                _show_feedback_with_button_with_button("Registration complete. Please proceed to login");
+                show_feedback_with_button("Registration complete. Please proceed to login", "");
                 break;
 
             case 409:
@@ -108,7 +108,9 @@ function create_login_page() {
                 break;
 
             case 404:
-                document.querySelector("#feedback_login").textContent = "Wrong user name or password."
+                const login_feedback = document.querySelector(".ready");
+                login_feedback.textContent = "Wrong user name or password.";
+                login_feedback.style.backgroundColor = "white";
                 // Empty inputs
                 document.querySelector(".input_username").value = "";
                 document.querySelector(".input_password").value = "";

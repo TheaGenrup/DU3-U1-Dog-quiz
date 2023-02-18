@@ -35,3 +35,4 @@ Att fixa
 - Feedback login
 - Kolla så att samma hund inte kommer två gånger
 - Se till så att username stannar på quiz-sidan
+- Fixa status 400 feedback
