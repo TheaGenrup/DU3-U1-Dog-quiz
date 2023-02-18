@@ -104,6 +104,7 @@ function create_login_page() {
 
         switch (check_credentials.status) {
             case 200:
+                localStorage.setItem("user_name", user_name_input)
                 create_quiz(user_name_input)
                 break;
 
@@ -117,7 +118,7 @@ function create_login_page() {
                 break;
 
             case 418:
-                show_feedback_with_button("The server thinks it's not a teapot!")
+                show_feedback_with_button("The server thinks it's not a teapot!", "CLOSE")
                 // Empty inputs
                 document.querySelector(".input_username").value = "";
                 document.querySelector(".input_password").value = "";

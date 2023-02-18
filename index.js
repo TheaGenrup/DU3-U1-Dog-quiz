@@ -1,7 +1,16 @@
 "use strict"
 
-create_login_page();
+load_page()
+function load_page() {
 
+
+    if (localStorage.getItem("user_name") === null) {
+        create_login_page();
+    } else {
+        create_quiz(localStorage.getItem("user_name"));
+    }
+
+}
 
 
 function show_feedback_with_button(message, button_text) {
@@ -51,18 +60,3 @@ function random_number(max) {
 }
 
 
-function save_credentials(user_name_input, password_input) {
-
-    const credentials = JSON.stringify({
-        user_name: user_name_input,
-        password: password_input,
-    })
-
-    localStorage.setItem("user", credentials)
-
-    const recent_user = JSON.parse(localStorage.getItem("user"))
-
-    if (recent_user !== null) {
-
-    }
-}

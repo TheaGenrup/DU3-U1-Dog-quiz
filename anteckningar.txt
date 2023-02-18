@@ -1,38 +1,8 @@
 
-prefix: https://teaching.maumt.se/apis/access/
 
-
-
-https://dog.ceo/dog-api/documentation
-
-
-Display single random image from all dogs collection
-https://dog.ceo/api/breeds/image/random
-
-
-List all breeds
-https://dog.ceo/api/breeds/list/all
-
-
-
-
-Problem + Frågor
-
-Hur får jag tag på responsen från en async function?
-
-Vilken sida ska man komma till först?
-
-Om vi försöker registrera oss utan att ha skrivit någon input?
-
-
-
-quiz svarsalternativ = först hämtar vi de fyra namnen på raserna och lägger de i en array (slumpad ordning), sen skapar vi en array med alla fyra grid-positioner och ger namnen varsin position (behöver inte vara slumpat)
 
 
 Att fixa
-- Lägga till catch
-- Log out
-- Feedback login
+- Lägga till catch?
 - Kolla så att samma hund inte kommer två gånger
-- Se till så att username stannar på quiz-sidan
 - Fixa status 400 feedback

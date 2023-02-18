@@ -7,6 +7,8 @@ function create_quiz(user_name) {
 
         document.querySelector("#wrapper").style.backgroundImage = "url(media/logo.png)";
 
+        document.querySelector("#wrapper").style.backgroundColor = "#B0C7BE";
+
         show_feedback_no_button("Getting a random image");
 
 
@@ -21,7 +23,7 @@ function create_quiz(user_name) {
 
 
         document.querySelector(".user button").addEventListener("click", () => {
-            localStorage.removeItem("user");
+            localStorage.removeItem("user_name");
             location.reload();
             create_login_page();
         })
