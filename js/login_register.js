@@ -17,13 +17,11 @@ function create_register_page() {
     document.querySelector("#wrapper").style.backgroundColor = "rgb(168, 206, 206)";
     document.querySelector(".where_to").addEventListener("click", create_login_page)
 
+
     //button interaction
     document.querySelector(".register_btn").addEventListener("click", async (event) => {
 
-        const feedback_container = document.querySelector("#feedback");
-        feedback_container.textContent = "Contacting the server...";
-        feedback_container.classList.remove("invisible");
-        document.querySelector("#feedback_bg").classList.remove("invisible");
+        _show_feedback_with_button_no_button("Contacting the server...")
 
         // Get input and post it
         const user_name_input = document.querySelector(".input_username").value;
@@ -43,15 +41,15 @@ function create_register_page() {
 
         switch (post_new_user.status) {
             case 200:
-                alert("Registration complete. Please proceed to login");
+                _show_feedback_with_button_with_button("Registration complete. Please proceed to login");
                 break;
 
             case 409:
-                alert("Sorry, that name is taken. Please try with another one.")
+                show_feedback_with_button("Sorry, that name is taken. Please try with another one.")
                 break;
 
             case 418:
-                alert("The server thinks it's not a teapot!")
+                show_feedback_with_button("The server thinks it's not a teapot!")
                 break;
 
             default:
@@ -117,7 +115,7 @@ function create_login_page() {
                 break;
 
             case 418:
-                alert("The server thinks it's not a teapot!")
+                show_feedback_with_button("The server thinks it's not a teapot!")
                 // Empty inputs
                 document.querySelector(".input_username").value = "";
                 document.querySelector(".input_password").value = "";

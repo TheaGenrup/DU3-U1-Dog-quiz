@@ -33,5 +33,5 @@ Att fixa
 - Lägga till catch
 - Log out
 - Feedback login
-- Logo not found 404
+- Kolla så att samma hund inte kommer två gånger
 - Se till så att username stannar på quiz-sidan
