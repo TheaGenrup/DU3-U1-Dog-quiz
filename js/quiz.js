@@ -7,7 +7,8 @@ function create_quiz(user_name) {
 
         document.querySelector("#wrapper").style.backgroundImage = "url(media/logo.png)";
 
-        document.querySelector("#wrapper").style.backgroundColor = "#B0C7BE";
+        document.querySelector("#wrapper").style.backgroundColor = "rgb(227, 186, 166)";
+        document.querySelector("#wrapper").style.removeProperty("transition");
 
         show_feedback_no_button("Getting a random image");
 
@@ -25,6 +26,7 @@ function create_quiz(user_name) {
         document.querySelector(".user button").addEventListener("click", () => {
             localStorage.removeItem("user_name");
             location.reload();
+            document.querySelector("#wrapper").style.removeProperty("transition");
             create_login_page();
         })
 
@@ -35,8 +37,12 @@ function create_quiz(user_name) {
 
             // get four random dogs
             let array_with_dogs = []
-            for (let i = 0; i < 4; i++) {
-                array_with_dogs.push(ALL_BREEDS[random_number(ALL_BREEDS.length)]);
+
+            while (array_with_dogs.length < 4) {
+                const new_dog = ALL_BREEDS[random_number(ALL_BREEDS.length)];
+                if (!array_with_dogs.includes(new_dog)) {
+                    array_with_dogs.push(new_dog);
+                }
             }
 
 
@@ -47,7 +53,9 @@ function create_quiz(user_name) {
 
             document.querySelector("#image").src = await get_image.message;
 
-            hide_feedback()
+            document.querySelector("#wrapper").style.removeProperty("background-image");
+
+            hide_feedback();
 
             //create alternative buttons
             array_with_dogs.forEach(animal => {
@@ -55,7 +63,6 @@ function create_quiz(user_name) {
                 alt_btn.classList.add("alt_btn");
                 document.querySelector("#alternatives").append(alt_btn);
                 alt_btn.textContent = animal.name;
-                document.querySelector("#wrapper").style.backgroundImage = "";
 
                 alt_btn.addEventListener("click", (event => {
 
@@ -64,12 +71,11 @@ function create_quiz(user_name) {
                         document.querySelector("#feedback").style.backgroundColor = "rgb(184, 215, 111)";
 
                     } else {
-                        show_feedback_with_button("Sorry, wrong answer", "ONE MORE")
+                        show_feedback_with_button("I'm afraid not...", "ONE MORE")
                         document.querySelector("#feedback").style.backgroundColor = "#c57c76";
-
                     }
 
-                    document.querySelector(".close_button").addEventListener("click", create_quiz_layout)
+                    document.querySelector(".close_button").addEventListener("click", create_quiz_layout);
                 }))
             })
 

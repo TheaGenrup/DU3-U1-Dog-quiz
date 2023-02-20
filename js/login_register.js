@@ -14,8 +14,12 @@ function create_register_page() {
     <button class="register_btn">Register</button>
     <p class="where_to">Already have an account? Go to login</p>
     `;
-    document.querySelector("#wrapper").style.backgroundColor = "rgb(168, 206, 206)";
-    document.querySelector(".where_to").addEventListener("click", create_login_page)
+    document.querySelector("#wrapper").style.backgroundColor = "rgb(97, 172, 172)";
+    document.querySelector("#wrapper").style.transition = "background-color 1s";
+    document.querySelector(".where_to").addEventListener("click", (event) => {
+        document.querySelector("#wrapper").style.transition = "background-color 1s";
+        create_login_page()
+    })
 
 
     //button interaction
@@ -27,34 +31,46 @@ function create_register_page() {
         const user_name_input = document.querySelector(".input_username").value;
         const password_input = document.querySelector(".input_password").value;
 
+        try {
+            const post_new_user = await fetch_resource(new Request("https://teaching.maumt.se/apis/access/", {
+                method: "POST",
+                body: JSON.stringify({
+                    action: "register",
+                    user_name: user_name_input,
+                    password: password_input
+                }),
+                headers: { "Content-type": "application/json; charset=UTF-8" }
+            }));
 
-        const post_new_user = await fetch_resource(new Request("https://teaching.maumt.se/apis/access/", {
-            method: "POST",
-            body: JSON.stringify({
-                action: "register",
-                user_name: user_name_input,
-                password: password_input
-            }),
-            headers: { "Content-type": "application/json; charset=UTF-8" }
-        }))
+            console.log(post_new_user);
 
 
-        switch (post_new_user.status) {
-            case 200:
-                show_feedback_with_button("Registration complete. Please proceed to login", "");
-                break;
+            switch (post_new_user.status) {
+                case 200:
+                    show_feedback_with_button("Registration complete. Please proceed to login", "CLOSE");
+                    break;
 
-            case 409:
-                show_feedback_with_button("Sorry, that name is taken. Please try with another one.")
-                break;
+                case 409:
+                    show_feedback_with_button("Sorry, that name is taken. Please try with another one.", "CLOSE")
+                    break;
 
-            case 418:
-                show_feedback_with_button("The server thinks it's not a teapot!")
-                break;
+                case 418:
+                    show_feedback_with_button("The server thinks it's not a teapot!", "CLOSE")
+                    break;
 
-            default:
-                break;
+                case 400:
+                    show_feedback_with_button("Please enter username and password", "CLOSE")
+
+                default:
+                    break;
+            }
+        } catch (error) {
+            console.log(error.message);
+            if (error.message.includes("NetworkError")) {
+                show_feedback_with_button("Couldn't reach server, please try again", "CLOSE")
+            }
         }
+
 
         document.querySelector(".input_username").value = "";
         document.querySelector(".input_password").value = "";
@@ -78,7 +94,10 @@ function create_login_page() {
     <button class="login_btn">LOGIN</button>
     <p class="where_to">New to this? Register for free</p>`;
 
-    document.querySelector("#wrapper").style.backgroundColor = "rgb(216, 238, 205)";
+    document.querySelector("#wrapper").style.backgroundColor = "rgb(151, 196, 196)";
+
+
+
     document.querySelector(".where_to").addEventListener("click", create_register_page)
 
 
@@ -95,40 +114,50 @@ function create_login_page() {
         const user_name_input = document.querySelector(".input_username").value;
         const password_input = document.querySelector(".input_password").value;
 
+        try {
 
-        const check_credentials = await fetch_resource(`https://teaching.maumt.se/apis/access/?action=check_credentials&user_name=${user_name_input}&password=${password_input}`);
+            const check_credentials = await fetch_resource(`https://teaching.maumt.se/apis/access/?action=check_credentials&user_name=${user_name_input}&password=${password_input}`);
 
-        feedback_container.classList.add("invisible");
-        document.querySelector("#feedback_bg").classList.add("invisible");
+            feedback_container.classList.add("invisible");
+            document.querySelector("#feedback_bg").classList.add("invisible");
 
 
-        switch (check_credentials.status) {
-            case 200:
-                localStorage.setItem("user_name", user_name_input)
-                create_quiz(user_name_input)
-                break;
+            switch (check_credentials.status) {
+                case 200:
+                    localStorage.setItem("user_name", user_name_input);
+                    create_quiz(user_name_input);
+                    break;
 
-            case 404:
-                const login_feedback = document.querySelector(".ready");
-                login_feedback.textContent = "Wrong user name or password.";
-                login_feedback.style.backgroundColor = "white";
-                // Empty inputs
-                document.querySelector(".input_username").value = "";
-                document.querySelector(".input_password").value = "";
-                break;
+                case 404:
+                    const login_feedback = document.querySelector(".ready");
+                    login_feedback.textContent = "Wrong user name or password.";
+                    login_feedback.style.backgroundColor = "white";
+                    // Empty inputs
+                    document.querySelector(".input_username").value = "";
+                    document.querySelector(".input_password").value = "";
+                    break;
 
-            case 418:
-                show_feedback_with_button("The server thinks it's not a teapot!", "CLOSE")
-                // Empty inputs
-                document.querySelector(".input_username").value = "";
-                document.querySelector(".input_password").value = "";
-                break;
+                case 418:
+                    show_feedback_with_button("The server thinks it's not a teapot!", "CLOSE");
+                    // Empty inputs
+                    document.querySelector(".input_username").value = "";
+                    document.querySelector(".input_password").value = "";
+                    break;
 
-            default:
-                break;
+                case 400:
+                    show_feedback_with_button("Please enter username and password", "CLOSE");
+
+                default:
+                    break;
+            }
+
+
+        } catch (error) {
+            console.log(error.message);
+            if (error.message.includes("NetworkError")) {
+                show_feedback_with_button("Couldn't reach server, please try again", "CLOSE")
+            }
         }
-
-
 
     })
 

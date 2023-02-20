@@ -16,6 +16,7 @@
 
 .user button {
     height: 5vh;
+    cursor: pointer;
 }
 
 .user div {

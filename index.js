@@ -1,8 +1,7 @@
 "use strict"
 
-load_page()
+load_page();
 function load_page() {
-
 
     if (localStorage.getItem("user_name") === null) {
         create_login_page();
@@ -21,7 +20,6 @@ function show_feedback_with_button(message, button_text) {
     feedback_container.classList.remove("invisible");
     document.querySelector("#feedback_bg").classList.remove("invisible");
 
-
     const button = document.createElement("button");
     feedback_container.append(button);
     button.classList.add("close_button");
@@ -39,7 +37,7 @@ function show_feedback_no_button(message) {
     const feedback_container = document.querySelector("#feedback");
     feedback_container.innerText = message;
     feedback_container.style.backgroundColor = "white";
-    feedback_container.classList.add("feedback")
+    feedback_container.classList.add("feedback");
 
     feedback_container.classList.remove("invisible");
     document.querySelector("#feedback_bg").classList.remove("invisible");

@@ -3,6 +3,5 @@
 
 
 Att fixa
-- Lägga till catch?
-- Kolla så att samma hund inte kommer två gånger
-- Fixa status 400 feedback
+
+- Filezilla

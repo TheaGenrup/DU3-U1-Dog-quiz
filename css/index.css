@@ -31,6 +31,8 @@ body {
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
+
+    /*     transition: background-color 1s; */
 }
 
 header {
@@ -89,7 +91,7 @@ footer>a {
     background-color: rgba(255, 255, 255, 0.913);
     padding: 15px;
     border-radius: 10px;
-    font-size: 6vw;
+    font-size: 6.5vw;
 
     margin: 0 2vh;
     position: absolute;
@@ -98,14 +100,6 @@ footer>a {
     right: 50%;
     transform: translate(54.5%, -50%);
     width: 79vw;
-
-    /* 
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-
-
 }
 
 #feedback>button {
@@ -125,7 +119,7 @@ footer>a {
 }
 
 #feedback_bg {
-    background-color: rgba(255, 255, 255, 0.581);
+    background-color: rgba(255, 255, 255, 0.74);
     height: 100vh;
     width: 100vw;
     position: absolute;
