@@ -18,15 +18,15 @@ function create_quiz(user_name) {
             <div>${user_name}</div>
             <button>LOG OUT</button>
         </div>
-    
-        <img id="image" src="" alt="">
-        <div id="alternatives"></div>`;
+        <div id="game_container">
+            <img id="image" src="">
+            <div id="alternatives"></div>
+        </div>`;
 
 
         document.querySelector(".user button").addEventListener("click", () => {
             localStorage.removeItem("user_name");
-            location.reload();
-            document.querySelector("#wrapper").style.removeProperty("transition");
+            document.querySelector("#wrapper").style.transition = "background-color 1s";
             create_login_page();
         })
 
