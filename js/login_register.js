@@ -16,6 +16,9 @@ function create_register_page() {
     `;
     document.querySelector("#wrapper").style.backgroundColor = "rgb(97, 172, 172)";
     document.querySelector("#wrapper").style.transition = "background-color 1s";
+
+    document.querySelector("main").classList.add("main_login_register");
+
     document.querySelector(".where_to").addEventListener("click", (event) => {
         document.querySelector("#wrapper").style.transition = "background-color 1s";
         create_login_page()
@@ -60,6 +63,7 @@ function create_register_page() {
 
                 case 400:
                     show_feedback_with_button("Please enter username and password", "CLOSE")
+                    break;
 
                 default:
                     break;
@@ -95,6 +99,7 @@ function create_login_page() {
     <p class="where_to">New to this? Register for free</p>`;
 
     document.querySelector("#wrapper").style.backgroundColor = "rgb(151, 196, 196)";
+    document.querySelector("main").classList.add("main_login_register");
 
 
 
@@ -146,6 +151,7 @@ function create_login_page() {
 
                 case 400:
                     show_feedback_with_button("Please enter username and password", "CLOSE");
+                    break;
 
                 default:
                     break;
@@ -155,7 +161,7 @@ function create_login_page() {
         } catch (error) {
             console.log(error.message);
             if (error.message.includes("NetworkError")) {
-                show_feedback_with_button("Couldn't reach server, please try again", "CLOSE")
+                show_feedback_with_button("Couldn't reach server, please try again", "CLOSE");
             }
         }
 

@@ -5,6 +5,9 @@ function create_quiz(user_name) {
 
     function create_quiz_layout() {
 
+        // CSS
+        document.querySelector("main").classList.remove("main_login_register");
+
         document.querySelector("#wrapper").style.backgroundImage = "url(media/logo.png)";
 
         document.querySelector("#wrapper").style.backgroundColor = "rgb(227, 186, 166)";

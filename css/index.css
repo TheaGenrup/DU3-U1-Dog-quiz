@@ -17,6 +17,9 @@ body {
     background-color: black;
     margin: 0;
     box-sizing: border-box;
+    height: 100%;
+    overflow: scroll;
+
 }
 
 #wrapper {
@@ -25,8 +28,10 @@ body {
     padding: 3vh;
     box-sizing: border-box;
     margin: 0;
-    overflow: hidden;
-    position: relative;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+
 
     background-position: center;
     background-size: 100%;
@@ -56,7 +61,13 @@ header {
 }
 
 main {
-    margin: 20vh 0vh;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.main_login_register {
+    margin-top: 1x0vh;
 }
 
 main>input {
@@ -71,10 +82,8 @@ main>p {
 
 
 footer {
-    position: absolute;
-    bottom: 0;
     box-sizing: border-box;
-    margin: 0 4vw 0 3vw;
+    margin-top: 10px;
     font-size: 14px;
 }
 
