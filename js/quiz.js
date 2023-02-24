@@ -8,7 +8,7 @@ function create_quiz(user_name) {
         // CSS
         document.querySelector("main").classList.remove("main_login_register");
 
-        document.querySelector("#wrapper").style.backgroundImage = "url(media/logo.png)";
+        document.querySelector("#wrapper").classList.add("background_img");
 
         document.querySelector("#wrapper").style.backgroundColor = "rgb(227, 186, 166)";
         document.querySelector("#wrapper").style.removeProperty("transition");
@@ -56,7 +56,7 @@ function create_quiz(user_name) {
 
             document.querySelector("#image").src = await get_image.message;
 
-            document.querySelector("#wrapper").style.removeProperty("background-image");
+            document.querySelector("#wrapper").classList.remove("background_img");
 
             hide_feedback();
 

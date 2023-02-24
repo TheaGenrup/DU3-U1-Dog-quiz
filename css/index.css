@@ -19,7 +19,6 @@ body {
     box-sizing: border-box;
     height: 100%;
     overflow: scroll;
-
 }
 
 #wrapper {
@@ -31,13 +30,13 @@ body {
     overflow: scroll;
     display: flex;
     flex-direction: column;
+}
 
-
+.background_img {
+    background-image: url(../media/logo.png);
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
-
-    /*     transition: background-color 1s; */
 }
 
 header {
@@ -67,7 +66,7 @@ main {
 }
 
 .main_login_register {
-    margin-top: 1x0vh;
+    margin-top: 12vh;
 }
 
 main>input {

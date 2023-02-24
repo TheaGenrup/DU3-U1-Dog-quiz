@@ -1,8 +1,8 @@
 "use strict"
 
 function create_register_page() {
+    document.querySelector("#wrapper").classList.remove("background_img");
     document.querySelector("#feedback_bg").classList.add("invisible");
-
 
     document.querySelector("main").innerHTML = `
     <h1 class="login_register_head">REGISTER</h1>
@@ -45,8 +45,6 @@ function create_register_page() {
                 headers: { "Content-type": "application/json; charset=UTF-8" }
             }));
 
-            console.log(post_new_user);
-
 
             switch (post_new_user.status) {
                 case 200:
@@ -86,6 +84,7 @@ function create_register_page() {
 function create_login_page() {
 
 
+    document.querySelector("#wrapper").classList.remove("background_img");
     document.querySelector("#feedback_bg").classList.add("invisible");
 
     document.querySelector("main").innerHTML = `
@@ -102,17 +101,13 @@ function create_login_page() {
     document.querySelector("main").classList.add("main_login_register");
 
 
-
     document.querySelector(".where_to").addEventListener("click", create_register_page)
 
 
     //button interaction
     document.querySelector(".login_btn").addEventListener("click", async (event) => {
 
-        const feedback_container = document.querySelector("#feedback");
-        feedback_container.textContent = "Contacting the server...";
-        feedback_container.classList.remove("invisible");
-        document.querySelector("#feedback_bg").classList.remove("invisible");
+        show_feedback_no_button("Contacting the server...")
 
 
         // Get input and check it
@@ -123,7 +118,8 @@ function create_login_page() {
 
             const check_credentials = await fetch_resource(`https://teaching.maumt.se/apis/access/?action=check_credentials&user_name=${user_name_input}&password=${password_input}`);
 
-            feedback_container.classList.add("invisible");
+
+            document.querySelector("#feedback").classList.add("invisible");
             document.querySelector("#feedback_bg").classList.add("invisible");
 
 
