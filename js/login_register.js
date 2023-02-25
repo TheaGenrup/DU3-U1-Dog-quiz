@@ -1,8 +1,12 @@
 "use strict"
 
 function create_register_page() {
+
     document.querySelector("#wrapper").classList.remove("background_img");
+    document.querySelector("#wrapper").style.backgroundColor = "rgb(97, 172, 172)";
+    document.querySelector("#wrapper").style.transition = "background-color 1s";
     document.querySelector("#feedback_bg").classList.add("invisible");
+    document.querySelector("main").classList.add("main_login_register");
 
     document.querySelector("main").innerHTML = `
     <h1 class="login_register_head">REGISTER</h1>
@@ -14,14 +18,10 @@ function create_register_page() {
     <button class="register_btn">Register</button>
     <p class="where_to">Already have an account? Go to login</p>
     `;
-    document.querySelector("#wrapper").style.backgroundColor = "rgb(97, 172, 172)";
-    document.querySelector("#wrapper").style.transition = "background-color 1s";
-
-    document.querySelector("main").classList.add("main_login_register");
 
     document.querySelector(".where_to").addEventListener("click", (event) => {
         document.querySelector("#wrapper").style.transition = "background-color 1s";
-        create_login_page()
+        create_login_page();
     })
 
 
@@ -119,17 +119,15 @@ function create_login_page() {
             const check_credentials = await fetch_resource(`https://teaching.maumt.se/apis/access/?action=check_credentials&user_name=${user_name_input}&password=${password_input}`);
 
 
-            document.querySelector("#feedback").classList.add("invisible");
-            document.querySelector("#feedback_bg").classList.add("invisible");
-
-
             switch (check_credentials.status) {
                 case 200:
+                    hide_feedback()
                     localStorage.setItem("user_name", user_name_input);
                     create_quiz(user_name_input);
                     break;
 
                 case 404:
+                    hide_feedback()
                     const login_feedback = document.querySelector(".ready");
                     login_feedback.textContent = "Wrong user name or password.";
                     login_feedback.style.backgroundColor = "white";

@@ -1,16 +1,16 @@
 
 function create_quiz(user_name) {
 
-    create_quiz_layout()
+    create_quiz_layout();
 
     function create_quiz_layout() {
 
-        // CSS
         document.querySelector("main").classList.remove("main_login_register");
 
         document.querySelector("#wrapper").classList.add("background_img");
 
         document.querySelector("#wrapper").style.backgroundColor = "rgb(227, 186, 166)";
+
         document.querySelector("#wrapper").style.removeProperty("transition");
 
         show_feedback_no_button("Getting a random image");
@@ -34,12 +34,12 @@ function create_quiz(user_name) {
         })
 
 
-        create_quiz_game()
+        create_quiz_game();
 
         async function create_quiz_game() {
 
             // get four random dogs
-            let array_with_dogs = []
+            let array_with_dogs = [];
 
             while (array_with_dogs.length < 4) {
                 const new_dog = ALL_BREEDS[random_number(ALL_BREEDS.length)];

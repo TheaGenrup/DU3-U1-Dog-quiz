@@ -37,11 +37,9 @@ function show_feedback_no_button(message) {
     const feedback_container = document.querySelector("#feedback");
     feedback_container.innerText = message;
     feedback_container.style.backgroundColor = "white";
-    feedback_container.classList.add("feedback");
 
     feedback_container.classList.remove("invisible");
     document.querySelector("#feedback_bg").classList.remove("invisible");
-
 }
 
 

@@ -12,13 +12,10 @@
     font-family: "Roboto Regular";
 }
 
-
 body {
     background-color: black;
     margin: 0;
     box-sizing: border-box;
-    height: 100%;
-    overflow: scroll;
 }
 
 #wrapper {
@@ -26,7 +23,6 @@ body {
     height: 100vh;
     padding: 3vh;
     box-sizing: border-box;
-    margin: 0;
     overflow: scroll;
     display: flex;
     flex-direction: column;
@@ -56,7 +52,7 @@ header {
 }
 
 #title {
-    font-size: 5vw;
+    font-size: 3vh;
 }
 
 main {
@@ -97,7 +93,7 @@ footer>a {
 
 #feedback {
     background-color: rgba(255, 255, 255, 0.913);
-    padding: 15px;
+    padding: 2.5vh;
     border-radius: 10px;
     font-size: 6.5vw;
 
@@ -118,8 +114,8 @@ footer>a {
     position: relative;
     border-radius: 10px;
     width: 70vw;
-    margin-top: 10px;
-    font-size: 17px;
+    margin-top: 2vh;
+    font-size: 2.5vh;
 }
 
 #feedback>button:hover {
